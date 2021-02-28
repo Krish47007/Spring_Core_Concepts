@@ -1,5 +1,7 @@
 package org.krish.why.ioc.spring;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class MyAppMain {
 
     static void performDailyRoutine(Coach coach)
@@ -9,13 +11,25 @@ public class MyAppMain {
 
     public static void main(String[] args) {
 
-        //We can have any type of coach as we're coding to interface.
-        //Tightly coupled
-        performDailyRoutine(new BattingCoach());
-        performDailyRoutine(new FieldingCoach());
+        //Load Spring configuration file
+        var context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        //performDailyRoutine(() -> "Sleep well for 8 hours");
+        //Loading the beans created by Spring container and passing to the method
+        // We're saying the type is Coach and the beans created by Spring are actual implementations
+
+        Coach battingCoach = context.getBean("battingCoach",Coach.class);
+        performDailyRoutine(battingCoach);
+
+        Coach fieldingCoach = context.getBean("fieldingCoach",Coach.class);
+        performDailyRoutine(fieldingCoach);
 
 
+        //Playing around with context
+        System.out.println(context.containsBean("battingCoach"));
+        System.out.println(context.getBeanDefinitionCount());
+
+        //Closing the context
+        if(context != null)
+            context.close();
     }
 }
