@@ -26,6 +26,10 @@ public class MyAppMain {
 
         Coach bowLingCoach = context.getBean("bowlingCoach",Coach.class);
         performDailyRoutine(bowLingCoach);
+
+        BowlingCoach bCoach = (BowlingCoach)bowLingCoach;
+        System.out.println(bCoach.getEmail()+"\t"+bCoach.getTeam());
+
 /*
         //Playing around with context
         System.out.println(context.containsBean("battingCoach"));

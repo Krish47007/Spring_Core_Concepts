@@ -29,6 +29,8 @@
           class="org.krish.di.setter.BowlingCoach" >
         <!-- Setter injection -->
         <property name="fortuneService" ref="happyFortune" />
+        <property name="email" value="krish@bcci.com" />
+        <property name="team" value="India" />
     </bean>
 
 </beans>
