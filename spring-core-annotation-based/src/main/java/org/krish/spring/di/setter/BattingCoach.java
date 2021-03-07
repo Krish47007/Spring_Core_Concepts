@@ -12,9 +12,15 @@ public class BattingCoach implements Coach {
         System.out.println("BattingCoach: Inside default constructor");
     }
 
-    @Autowired
+    /*@Autowired
     public void setFortuneService(FortuneService fortuneService) {
         System.out.println("Setter called");
+        this.fortuneService = fortuneService;
+    }*/
+
+    @Autowired
+    public void doMyStuff(FortuneService fortuneService) {
+        System.out.println("BattingCoach : doMyStuff called");
         this.fortuneService = fortuneService;
     }
 
