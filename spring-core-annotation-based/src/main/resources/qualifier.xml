@@ -10,6 +10,8 @@
     <!-- Enable component scanning -->
     <context:component-scan base-package="org.krish.spring.di.qualifier" />
 
+    <context:property-placeholder location="classpath:sport.properties" />
+
 </beans>
 
 

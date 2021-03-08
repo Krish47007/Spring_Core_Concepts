@@ -2,6 +2,7 @@ package org.krish.spring.di.qualifier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("battingCoach")
@@ -20,6 +21,11 @@ public class BattingCoach implements Coach {
 
     private FortuneService fortuneService;
 
+    @Value("${bCoach.email}")
+    private String email;
+    @Value("${bCoach.team}")
+    private String team;
+
 /*    //Constructor injection
     @Autowired
     public BattingCoach( @Qualifier("rfs") FortuneService fortuneService) {
@@ -30,6 +36,14 @@ public class BattingCoach implements Coach {
     @Qualifier("rfs")
     public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTeam() {
+        return team;
     }
 
     @Override
