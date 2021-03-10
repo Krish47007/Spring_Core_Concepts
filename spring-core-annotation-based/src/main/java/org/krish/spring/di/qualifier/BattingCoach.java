@@ -3,9 +3,12 @@ package org.krish.spring.di.qualifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("battingCoach")
+//@Scope("singleton")
+@Scope("prototype")
 public class BattingCoach implements Coach {
 
     /*
@@ -33,7 +36,7 @@ public class BattingCoach implements Coach {
     }*/
 
     @Autowired
-    @Qualifier("rfs")
+    @Qualifier("fbfs")
     public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }

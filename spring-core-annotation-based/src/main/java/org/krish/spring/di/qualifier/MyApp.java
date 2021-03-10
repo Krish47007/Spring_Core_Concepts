@@ -7,10 +7,14 @@ public class MyApp {
 
         var context = new ClassPathXmlApplicationContext("qualifier.xml");
 
-        BattingCoach battingCoach = context.getBean("battingCoach", BattingCoach.class);
-        System.out.println(battingCoach.getEmail()+"\t"+battingCoach.getTeam());
+        BattingCoach bc1 = context.getBean("battingCoach", BattingCoach.class);
+        /*System.out.println(battingCoach.getEmail()+"\t"+battingCoach.getTeam());
         System.out.println(battingCoach.getDailyWorkOut());
-        System.out.println(battingCoach.getDailyFortune());
+        System.out.println(battingCoach.getDailyFortune());*/
+
+        BattingCoach bc2 = context.getBean("battingCoach", BattingCoach.class);
+
+        System.out.println(bc1.equals(bc2));
 
     }
 }
