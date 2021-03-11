@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component("battingCoach")
-//@Scope("singleton")
-@Scope("prototype")
+@Scope("singleton")
+//@Scope("prototype")
 public class BattingCoach implements Coach {
 
     /*
@@ -57,5 +60,18 @@ public class BattingCoach implements Coach {
     public String getDailyFortune()
     {
         return fortuneService.getFortune();
+    }
+
+
+    @PostConstruct
+    public void init()
+    {
+        System.out.println("BattingCoach : Inside init method");
+    }
+
+    @PreDestroy
+    public void destroy() {
+
+        System.out.println("BattingCoach : Inside destroy method");
     }
 }

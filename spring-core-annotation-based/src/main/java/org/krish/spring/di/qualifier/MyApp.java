@@ -12,9 +12,12 @@ public class MyApp {
         System.out.println(battingCoach.getDailyWorkOut());
         System.out.println(battingCoach.getDailyFortune());*/
 
-        BattingCoach bc2 = context.getBean("battingCoach", BattingCoach.class);
+        /*BattingCoach bc2 = context.getBean("battingCoach", BattingCoach.class);
 
-        System.out.println(bc1.equals(bc2));
+        System.out.println(bc1.equals(bc2));*/
+
+        if(context != null)
+            context.close();
 
     }
 }
