@@ -12,5 +12,6 @@ public class Main {
 
         System.out.println(swimCoach.getDailyWorkOut());
         System.out.println(swimCoach.getDailyFortune());
+        System.out.println(swimCoach.getEmail()+"\t"+swimCoach.getTeam());
     }
 }
